@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+// модель пользователя
+model User {
+  id        String  @id @default(uuid())
+  username  String?
+  password  String
+}
+// модель поста
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  content   Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+// aiven.io DB
+// host: nene-mysql-nene.a.aivencloud.com
+// db:   defaultdb
+// port: 10793
+// user: avnadmin
+// pass: AVNS_VMmQWAGBp1T_At3IYUp
+
+
+
+// local database
+// DB
+// nene0am2020_admin
+// user++
+// nene0am2020_admin
+// roodDbAdmin#
